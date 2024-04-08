@@ -22,6 +22,7 @@ public class ComarcaPlus extends Tarjeta {
 
         double costoAPagar = costoTotal - descuento;
         costoAPagar = calcularCostoTotalConPropina(costoAPagar);
+        unPedido.guardarRegistro(costoAPagar);
         return costoAPagar;
     }
 }

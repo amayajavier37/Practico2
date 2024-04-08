@@ -6,8 +6,7 @@ import persistenciaEj1.EnMailRegistroInscripcion;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestConcurso {
 
@@ -18,7 +17,7 @@ public class TestConcurso {
 
         Concurso concurso1 = new Concurso(LocalDate.now().minusDays(1),
                 LocalDate.now().plusDays(4), "10KH",
-                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Concursos\\src\\main\\resources\\registroDeInscripciones.txt"),
+                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Practico2\\src\\main\\resources\\registroDeInscripciones.txt"),
                 new FakeProveedorFecha());
         concurso1.inscribir(participante1, LocalDate.now().minusDays(1));
         concurso1.inscribir(participante2, LocalDate.now().plusDays(1));
@@ -32,14 +31,12 @@ public class TestConcurso {
         Participante participante1 = new Participante("Javier", 12345);
         Concurso concurso1 = new Concurso(LocalDate.now().minusDays(1),
                 LocalDate.now().plusDays(4), "10KH",
-                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Concursos\\src\\main\\resources\\registroDeInscripciones.txt"),
+                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Practico2\\src\\main\\resources\\registroDeInscripciones.txt"),
                 new FakeProveedorFecha());
 
-        try {
+        assertThrows(RuntimeException.class, () -> {
             concurso1.inscribir(participante1, LocalDate.now().plusDays(6));
-        } catch (RuntimeException e) {
-            assertNotNull(e);
-        }
+        });
     }
 
     @Test
@@ -47,7 +44,7 @@ public class TestConcurso {
         Participante participante1 = new Participante("Javier", 12345);
         Concurso concurso1 = new Concurso(LocalDate.now().minusDays(1),
                 LocalDate.now().plusDays(4), "10KH",
-                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Concursos\\src\\main\\resources\\registroDeInscripciones.txt"),
+                new EnDiscoRegistroInscripcion("C:\\Users\\amaya\\IdeaProjects\\Practico2\\src\\main\\resources\\registroDeInscripciones.txt"),
                 new FakeProveedorFecha());
         concurso1.inscribir(participante1, LocalDate.now());
 

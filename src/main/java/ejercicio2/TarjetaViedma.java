@@ -17,6 +17,7 @@ class TarjetaViedma extends Tarjeta {
 
         double costoAPagar = costoTotalPlatos + costoTotalBebidas;
         costoAPagar = calcularCostoTotalConPropina(costoAPagar);
+        unPedido.guardarRegistro(costoAPagar);
         return costoAPagar;
     }
 }

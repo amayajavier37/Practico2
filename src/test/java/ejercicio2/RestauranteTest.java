@@ -1,6 +1,7 @@
 package ejercicio2;
 
 import org.junit.jupiter.api.Test;
+import persistenciaEj1.EnDiscoRegistroInscripcion;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +36,7 @@ class RestauranteTest {
     public void testPagoTarjetaVisa() {
         Mesa mesa1 = new Mesa(1, 10);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido(1, new EnDiscoRegistroInscripcion());
         pedido1.agregarplato(this.plato1);
         pedido1.agregarplato(this.plato2);
         pedido1.agregarBebida(this.bebida3);
@@ -50,7 +51,7 @@ class RestauranteTest {
     public void testPagoTarjetaMastercard() {
         Mesa mesa2 = new Mesa(2, 8);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido(2, new EnDiscoRegistroInscripcion());
         pedido1.agregarplato(this.plato3);
         pedido1.agregarBebida(this.bebida1);
         pedido1.agregarBebida(this.bebida2);
@@ -67,7 +68,7 @@ class RestauranteTest {
     public void testPagoTarjetaComarca() {
         Mesa mesa2 = new Mesa(2, 8);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido(2, new EnDiscoRegistroInscripcion());
         pedido1.agregarplato(this.plato3);
         pedido1.agregarBebida(this.bebida1);
         pedido1.agregarBebida(this.bebida2);
@@ -84,7 +85,7 @@ class RestauranteTest {
     public void testPagoTarjetaViedma() {
         Mesa mesa2 = new Mesa(2, 8);
 
-        Pedido pedido1 = new Pedido();
+        Pedido pedido1 = new Pedido(2, new EnDiscoRegistroInscripcion());
         pedido1.agregarplato(this.plato3);
         pedido1.agregarBebida(this.bebida1);
         pedido1.agregarBebida(this.bebida2);
@@ -95,4 +96,5 @@ class RestauranteTest {
 
         assertEquals(8400, tarjetaComun.montoAPagar(mesa2.cobrar()));
     }
+
 }

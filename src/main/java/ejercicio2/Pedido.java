@@ -1,19 +1,32 @@
 package ejercicio2;
 
+
+import ejercicio1.RegistroInscripcion;
+import persistenciaEj1.EnDiscoRegistroInscripcion;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+    private int idPedido;
+    private RegistroInscripcion interfaz;
     private List<Plato> platos;
     private List<Bebida> bebidas;
     private boolean confirmado;
 
-    public Pedido() {
+    public Pedido(int idPedido, RegistroInscripcion interfaz) {
         this.platos = new ArrayList<>();
         this.bebidas = new ArrayList<>();
         this.confirmado = false;
+        this.idPedido = idPedido;
+        this.interfaz = interfaz;
     }
 
+    public void guardarRegistro(double monto){
+        String data = LocalDateTime.now().toString() + " || " + monto + "\n";
+        this.interfaz.registrar(data);
+    }
     public void agregarplato(Plato plato) {
         platos.add(plato);
     }

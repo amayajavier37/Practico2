@@ -10,7 +10,7 @@ public class Mesa {
     public Mesa(int idMesa, int capacidad) {
         this.idMesa = idMesa;
         this.capacidad = capacidad;
-        this.pedido = new Pedido();
+
     }
 
     public void reservarMesa(int cantidadLugaresAreservar) {

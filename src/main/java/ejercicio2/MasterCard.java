@@ -19,6 +19,7 @@ public class MasterCard extends Tarjeta {
 
         double costoAPagar = costoTotalBebidas + (costoTotalPlatos - descuentoPlatos);
         costoAPagar = calcularCostoTotalConPropina(costoAPagar);
+        unPedido.guardarRegistro(costoAPagar);
         return costoAPagar;
     }
 

@@ -22,6 +22,7 @@ class Visa extends Tarjeta {
 
         double costoAPagar = costoTotalPlatos + (costoTotalBebidas - descuentoBebidas);
         costoAPagar = calcularCostoTotalConPropina(costoAPagar);
+        unPedido.guardarRegistro(costoAPagar);
         return costoAPagar;
 
     }
